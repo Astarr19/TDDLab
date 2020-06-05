@@ -14,14 +14,21 @@ class ChangeHandler {
    * The parameter "type" is a string that is either quarter, dime, nickel, or penny
    */
   insertCoin(type) {
-    if (type === "penny") {
-      this.cashTendered += 1;
-    } else if (type === "nickel") {
-      this.cashTendered += 5;
-    } else if (type === "dime") {
-      this.cashTendered += 10;
-    } else {
-      this.cashTendered += 25;
+    switch (type) {
+      case "penny":
+        this.cashTendered++;
+        break;
+      case "nickel":
+        this.cashTendered += 5;
+        break;
+      case "dime":
+        this.cashTendered += 10;
+        break;
+      case "quarter":
+        this.cashTendered += 25;
+        break;
+      default:
+        break;
     }
   }
 
@@ -29,11 +36,8 @@ class ChangeHandler {
    * Returns true if enough coins have been inserted to at least meet the amountDue
    */
   isPaymentSufficient() {
-    if (this.cashTendered >= this.amountDue) {
-      return true;
-    } else if (this.cashTendered < this.amountDue) {
-      return false;
-    }
+    return this.cashTendered >= this.amountDue; 
+      
   }
 
   giveChange() {
