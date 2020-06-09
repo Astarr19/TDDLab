@@ -11,10 +11,12 @@ describe("ChangeHandler tests", function(){
     test("inserting coins", function(){
         let transaction = new ChangeHandler()
         transaction.insertCoin('penny');
+        expect(transaction.cashTendered).toBe(1);
         transaction.insertCoin('nickel');
+        expect(transaction.cashTendered).toBe(6);
         transaction.insertCoin('dime');
-        transaction.insertCoin('quarter')
-
+        expect(transaction.cashTendered).toBe(16);
+        transaction.insertCoin('quarter');
         expect(transaction.cashTendered).toBe(41);
     })
 

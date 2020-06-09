@@ -14,21 +14,14 @@ class ChangeHandler {
    * The parameter "type" is a string that is either quarter, dime, nickel, or penny
    */
   insertCoin(type) {
-    switch (type) {
-      case "penny":
-        this.cashTendered++;
-        break;
-      case "nickel":
-        this.cashTendered += 5;
-        break;
-      case "dime":
-        this.cashTendered += 10;
-        break;
-      case "quarter":
-        this.cashTendered += 25;
-        break;
-      default:
-        break;
+    if (type === 'penny') {
+      this.cashTendered++;
+    } else if (type === 'nickel') {
+      this.cashTendered += 5;
+    } else if (type === 'dime') {
+      this.cashTendered += 10;
+    } else if (type === 'quarter') {
+      this.cashTendered += 25;
     }
   }
 
